@@ -9,9 +9,9 @@ struct cspro{
   char Incoming_value=0;
   int flag;
   int avg;
-  int AUTOWN;
-  int AUTO;
-  int current_brightness;
+  bool AUTOWN;
+  bool AUTO;
+  byte current_brightness;
 };
 struct cspro x1;
 void setup() {
@@ -53,7 +53,7 @@ void lightsOn() {
     x1.flag = 1;
   }
 }
-void lightsOff(int n) {
+void lightsOff(byte n) {
   if (x1.flag == 1) {
     for (int i = n; i >= 0; i--) {
       analogWrite(11, i);
