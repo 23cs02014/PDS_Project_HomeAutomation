@@ -8,7 +8,6 @@ Servo a2;
 struct cspro{
   char Incoming_value=0;
   bool flag;
-  int avg;
   bool AUTOWN;
   bool AUTO;
   byte current_brightness;
@@ -63,28 +62,28 @@ void lightsOff(byte n) {
   }
 }
 int readLight(int n){
-  x1.avg = 0;
+  int avg = 0;
   for(int i = 0 ; i < n ; i++){
-    x1.avg+=analogRead(A0);
+    avg+=analogRead(A0);
   }
-  x1.avg=x1.avg/n;
-  return x1.avg;
+  avg=avg/n;
+  return avg;
 }
 int readSmoke(int n){
-    x1.avg = 0;
+    int avg = 0;
   for(int i = 0 ; i < n ; i++){
-    x1.avg+=analogRead(A1);
+    avg+=analogRead(A1);
   }
-  x1.avg=x1.avg/n;
-  return x1.avg;
+  avg=avg/n;
+  return avg;
 }
 int readTemp(int n){
-      x1.avg = 0;
+      int avg = 0;
   for(int i = 0 ; i < n ; i++){
-    x1.avg+=dht.readTemperature();
+    avg+=dht.readTemperature();
   }
-  x1.avg=x1.avg/n;
-  return x1.avg;
+  avg=avg/n;
+  return avg;
 }
 
 void loop() {
