@@ -48,12 +48,3 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 + Control structures allow you to control the flow of your program based on certain conditions. Arduino supports common control structures like if, else, while, and for.
 ### 4. Libraries:-
 + Libraries are collections of pre-written code that provide additional functionality to your Arduino projects. You can include libraries in your code using the #include directive.\
-
-# Areas of improvement:-
-### 1. ESP-32:-
-+ ESP32 is a series of low-cost, low-power system-on-a-chip (SoC) microcontrollers with integrated Wi-Fi and Bluetooth capabilities. It's developed by Espressif Systems, primarily for Internet of Things (IoT) applications. ESP32 provides more features compared to traditional Arduino boards, such as better processing power, more GPIO pins, built-in Wi-Fi, Bluetooth connectivity, and support for a wide range of peripherals. This makes it suitable for applications requiring wireless communication and advanced functionality.
-+ Instead of using the app to communicate with Arduino Nano, we could’ve used ESP-32 to create a website and directly access the sensors of our smart home.
-### 2. Sensors:-
-+ Gas Sensors:-
-  Gas sensors detect the presence of harmful gases such as methane or propane and are commonly used in homes with gas-powered appliances to monitor for leaks and ensure safety.
-+ Air Quality Sensors: These sensors measure indoor air quality parameters such as particulate matter, volatile organic compounds (VOCs), and carbon dioxide levels, helping to create a healthier indoor environment by alerting occupants to poor air quality and enabling ventilation systems to adjust accordingly.
