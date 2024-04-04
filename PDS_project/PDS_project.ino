@@ -15,34 +15,34 @@ struct cspro{
 struct cspro x1;
 void setup() {
   Serial.begin(9600);
-  pinMode(11, OUTPUT);  //light.
+  pinMode(11, OUTPUT); //light.
   pinMode(12, OUTPUT); //buzzer.
   pinMode(A1, INPUT_PULLUP); //SmokeSensor.
   pinMode(A0, INPUT_PULLUP); //photoresistor.
   a1.attach(9);//door
   a2.attach(10);//window
-  dht.begin();
+  dht.begin();//to start the dht sensor
   
   x1.flag=0;
   x1.avg=0;
-  x1.AUTOWN=0;
+  x1.AUTOWN=0;//initialising the variables 
   x1.AUTO=0;
   /*used pins 2,9,10,11,12,A0,A1*/
 }
-void openDoor() {
+void openDoor() {// to open door
   a1.write(180);
 }
-void closeDoor() {
+void closeDoor() {// to close door
   a1.write(0);
 }
-void openWindow() {
+void openWindow() {// to open window
   a2.write(90);
 }
-void closeWindow() {
+void closeWindow() {// to close window
   a2.write(0);
 }
 
-
+// switching lights on slowly using PWM
 void lightsOn() {
   if (x1.flag == 0) {
     for (int i = 0; i < 256; i++) {
@@ -52,6 +52,7 @@ void lightsOn() {
     x1.flag = 1;
   }
 }
+//to turn off lights slowly using PWM and int n which is the previous state of the lights
 void lightsOff(byte n) {
   if (x1.flag == 1) {
     for (int i = n; i >= 0; i--) {
@@ -61,6 +62,9 @@ void lightsOff(byte n) {
     x1.flag = 0;
   }
 }
+// to read values from the LDR
+/*Here we are taking average of n values to reduce "Jitter", we found 5 values to be sufficient to reduce the jitter*/
+// it returns a 10bit value
 int readLight(int n){
   int avg = 0;
   for(int i = 0 ; i < n ; i++){
@@ -69,6 +73,9 @@ int readLight(int n){
   avg=avg/n;
   return avg;
 }
+// to read values from smoke sensor
+/*Here we are taking average of n values to reduce "Jitter", we found 5 values to be sufficient to reduce the jitter*/
+// it returns a 10bit value
 int readSmoke(int n){
     int avg = 0;
   for(int i = 0 ; i < n ; i++){
@@ -77,6 +84,9 @@ int readSmoke(int n){
   avg=avg/n;
   return avg;
 }
+// to read values from dht temperature sensor
+/*Here we are taking average of n values to reduce "Jitter", we found 5 values to be sufficient to reduce the jitter*/
+//it returns values in celcius
 int readTemp(int n){
       int avg = 0;
   for(int i = 0 ; i < n ; i++){
@@ -87,9 +97,13 @@ int readTemp(int n){
 }
 
 void loop() {
+  // checking if a value is being sent
   if (Serial.available() > 0) {
+    //Reading the value
     x1.Incoming_value = Serial.read();
+    //Printing the value in the serial monitor
     Serial.println(x1.Incoming_value);
+    //Entering the switch-case
     switch (x1.Incoming_value) {
       case '0':
         closeDoor();
@@ -98,51 +112,64 @@ void loop() {
         openDoor();
         break;
       case '3':
+        /*checking AUTOWN to see if the automatic blinds toggle is inactive*/
         if (x1.AUTOWN == 0)
           openWindow();
         break;
       case '2':
+        /*checking AUTOWN to see if the automatic blinds toggle is inactive*/
         if (x1.AUTOWN == 0)
           closeWindow();
         break;
       case 't':
+        /*checking AUTO to see if the automatic lights toggle is inactive*/
         if (x1.AUTO == 0)
           lightsOn();
         break;
       case 'r':
+        /*checking AUTO to see if the automatic lights toggle is inactive*/
         if (x1.AUTO == 0)
           analogWrite(11,map(75,0,100,0,255));
           x1.current_brightness=map(75,0,100,0,255);
         break;
       case 'e':
+        /*checking AUTO to see if the automatic lights toggle is inactive*/
         if (x1.AUTO == 0)
           analogWrite(11,map(50,0,100,0,255));
           x1.current_brightness=map(50,0,100,0,255);
         break;
       case 'w':
+        /*checking AUTO to see if the automatic lights toggle is inactive*/
         if (x1.AUTO == 0)
           analogWrite(11,map(25,0,100,0,255));
           x1.current_brightness=map(25,0,100,0,255);
         break;  
       case 'q':
+        /*checking AUTO to see if the automatic lights toggle is inactive*/
         if (x1.AUTO == 0)
           lightsOff(x1.current_brightness);
         break;
       case 'A':
+        /*Setting the AUTO value as per the lights toggle*/
         x1.AUTO = 1;
         break;
       case 'O':
+        /*Setting the AUTO value as per the lights toggle*/
         x1.AUTO = 0;
         break;
       case 'B':
+        /*Setting the AUTOWN value as per the blinds toggle*/
         x1.AUTOWN = 1;
         break;
       case 'C':
+        /*Setting the AUTOWN value as per the blinds toggle*/
         x1.AUTOWN = 0;
         break;
     }
   }
+  /*Checking if AUTO is enabled*/
   if (x1.AUTO) {
+    /*reading and checking the values againt the preset threshold*/
     if (readLight(5) < 150) {
       lightsOff(255);
     } else {
@@ -150,13 +177,17 @@ void loop() {
     }
   }
 //  Serial.println(analogRead(A0));
+  /*Checking if AUTOWN is enabled*/
   if (x1.AUTOWN == 1) {
+    /*reading and checking the values againt the preset threshold*/
     if (readTemp(5)<30) {
       closeWindow();
     } else {
       openWindow();
     }
   }
+  /*reading and checking the values againt the preset threshold*/
+  /*For the smoke sensor which enables the buzzer*/
    if(readSmoke(5)<=300){
      digitalWrite(12,HIGH);    
    }
