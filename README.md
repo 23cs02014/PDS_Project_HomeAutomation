@@ -65,7 +65,9 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 ### 3. Control Structures:-
 + Control structures allow you to control the flow of your program based on certain conditions. Arduino supports common control structures like if, else, while, and for.
 ### 4. Data Structures:-
-+ We're using the data structure "Struct" to hold our values, the struct contains a character variable for the incoming value and three booleans of which, two of them are used for Automatic Lights and Automatic Blinds and the third one is a flag variable to detect the current state of the lights. It also contains a byte variable to hold the current brightness value for the lights.
++ We're using the data structure "Struct" to hold our values.
++ The struct contains a character variable for the incoming value and three booleans of which, two of them are used for Automatic Lights and Automatic Blinds
++ The third one is a flag variable to detect the current state of the lights. It also contains a byte variable to hold the current brightness value for the lights.
 ### 4. Libraries:-
 + Libraries are collections of pre-written code that provide additional functionality to your Arduino projects. You can include libraries in your code using the #include directive.
 
