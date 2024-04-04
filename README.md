@@ -28,11 +28,12 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 
 # Functionalities:-
 + The app is password protected.
+
 ![Password](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/069a45b5-2cb7-40cc-b637-c2ecb2dfbb4a)
 
 
 ## Buttons in the app:-
-![Homescreen](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/e957b2e1-c538-4fd0-a8a3-2bb1b495f154)
+![Homescreen](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/1217e638-5fe0-4ffd-8ac3-192f351ac261)
 + First two buttons are for opening and closing the door.
 + The percentages indicate the brightness of the lights.
 + Turn on the "Automatic Lights" switch to operate the lights automatically. Whenever its dark outside, the lights inside turn on automatically and when its bright enough outside, the lights turn off automatically.
