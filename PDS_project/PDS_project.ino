@@ -206,11 +206,11 @@ void checkSmoke(){
 }
 void debug(int x , int y , int z){
    Serial.print("temp:");
-   Serial.print(readTemp(x)); /* temp sensor for auto window*/
+   Serial.print(readTemp(x)); /*temp sensor for auto window*/
    Serial.print("|| smoke:");
-   Serial.print(readSmoke(y));
+   Serial.print(readSmoke(y));/*smoke sensor for buzzer*/
    Serial.print("|| Photo:");
-   Serial.println(readLight(z));
+   Serial.println(readLight(z));/*LDR for lights*/
 }
 void loop() {
 /*Main function of the program*/
