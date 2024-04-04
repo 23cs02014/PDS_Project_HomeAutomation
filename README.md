@@ -1,3 +1,5 @@
+https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d2929-d0d7-438a-8f4f-f9bdb35237f3
+
 # Motivation: Why did we choose the project?
 +   In today's fast-paced world, convenience and efficiency are paramount. The ability to control and monitor our homes remotely offers not just convenience but also significant energy savings and enhanced security. Arduino, with its user-friendly interface and versatile capabilities, provides an excellent platform for developing home automation systems.
 +   By choosing to make a project on home automation using Arduino, we embark on a journey that combines creativity, technology, and practicality. We have the opportunity to design and implement solutions that cater to our specific needs, whether it's controlling lights, temperature, or security systems.
@@ -18,9 +20,15 @@
 + ***The app does not run on C***
 + MIT App Inventor is based on visual programming, specifically using a blocks-based programming interface. It is mainly used to make apps on android devices.
 
+![Screenshot 2024-04-04 160355](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/a9546544-4cd7-4239-b205-f36bfda7114f)
+
 # What we learnt?
 ## Arduino:-
 + Arduino is an open-source electronics platform based on easy-to-use hardware and software. The platform consists of an easy-to-use hardware development board and an integrated development environment (IDE) for writing and uploading code to the board.
+
+![PDS circuit](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/bf31a1e6-e60f-4e08-bace-7a6bd19f7200)
+
+
 ### Key Components of Arduino:-
 ### 1. Micro controller:-
 + The brain of the Arduino board, responsible for executing the code and controlling the hardware. The most common microcontroller used in Arduino boards is the Atmel AVR series.
