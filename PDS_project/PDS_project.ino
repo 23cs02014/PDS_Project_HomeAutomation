@@ -5,6 +5,12 @@
 DHT dht(DHTPIN, DHTTYPE);
 Servo a1;
 Servo a2;
+#define light 11
+#define buzzer 12
+#define LDR A0
+#define smokeSensor A1
+#define door 9
+#define window 10
 struct cspro{
   char Incoming_value=0;
   bool flag;
@@ -15,12 +21,12 @@ struct cspro{
 struct cspro x1;
 void setup() {
   Serial.begin(9600);
-  pinMode(11, OUTPUT); //light.
-  pinMode(12, OUTPUT); //buzzer.
-  pinMode(A1, INPUT_PULLUP); //SmokeSensor.
-  pinMode(A0, INPUT_PULLUP); //photoresistor.
-  a1.attach(9);//door
-  a2.attach(10);//window
+  pinMode(light, OUTPUT); //light.
+  pinMode(buzzer, OUTPUT); //buzzer.
+  pinMode(smokeSensor, INPUT_PULLUP); //SmokeSensor.
+  pinMode(LDR, INPUT_PULLUP); //photoresistor.
+  a1.attach(door);//door
+  a2.attach(window);//window
   dht.begin();//to start the dht sensor
   
   x1.flag=0;
@@ -46,7 +52,7 @@ void closeWindow() {// to close window
 void lightsOn() {
   if (x1.flag == 0) {
     for (int i = 0; i < 256; i++) {
-      analogWrite(11, i);
+      analogWrite(light, i);
       delay(10);
     }
     x1.flag = 1;
@@ -56,7 +62,7 @@ void lightsOn() {
 void lightsOff(byte n) {
   if (x1.flag == 1) {
     for (int i = n; i >= 0; i--) {
-      analogWrite(11, i);
+      analogWrite(light, i);
       delay(2);
     }
     x1.flag = 0;
@@ -189,10 +195,10 @@ void loop() {
   /*reading and checking the values againt the preset threshold*/
   /*For the smoke sensor which enables the buzzer*/
    if(readSmoke(5)<=300){
-     digitalWrite(12,HIGH);    
+     digitalWrite(buzzer,HIGH);    
    }
    else{
-     digitalWrite(12,LOW);
+     digitalWrite(buzzer,LOW);
    }
   // Serial.print("temp:");
   // Serial.print(readTemp(5)); /* temp sensor for auto window*/
