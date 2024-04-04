@@ -12,10 +12,10 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 + We are using the light sensor to detect external light and taking the input to adjust the brightness of the lights inside the room.
 ### 2. Temperature sensor:-
 + The DHT11 is a basic, ultra low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air and spits out a digital signal on the data pin (no analog input pins needed). It's fairly simple to use but requires careful timing to grab data. It has library <DHT>.
-+ We're using the temperature sensor to detect the ambient temperature of the room, if the temperature exceeds a certain treshold, the windows open automatically.
++ We're using the temperature sensor to detect the ambient temperature of the room, if the temperature exceeds a certain threshold, the windows open automatically.
 ### 3. Smoke  sensor:- 
 + We are using a Generic MQ2 Mq-2 Gas Sensor Module Smoke Methane Butane Detection. It can be used in homes and factories of gas leakage monitoring device, suitable for liquefied petroleum gas, butane, propane, methane, smoke detection. The sensor also gives values to the 10 bit ADC.
-+ If the smoke sensor detects smoke above a certain treshold, a buzzer will be activated.
++ If the smoke sensor detects smoke above a certain threshold, a buzzer will be activated.
 ### 4. Automatic door:- 
 + We are using a servo motor. It uses an encoder or speed sensor to provide speed feedback and position. This feedback signal is compared with the input command position (desired position of the motor corresponding to a load) and produces the error signal (if there exists a difference between them).
 + The entrance of the room is being secured by the app which we created. We can open the door by clickling the "Open" button on our phone after the bluetooth connection is established.
@@ -28,7 +28,8 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 
 # Functionalities:-
 + The app is password protected.
-![Password](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/0f1a7f7c-3b18-42a7-9ff2-8aa23242af13)
+![Password](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/069a45b5-2cb7-40cc-b637-c2ecb2dfbb4a)
+
 
 ## Buttons in the app:-
 ![Homescreen](https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/e957b2e1-c538-4fd0-a8a3-2bb1b495f154)
@@ -36,7 +37,7 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 + The percentages indicate the brightness of the lights.
 + Turn on the "Automatic Lights" switch to operate the lights automatically. Whenever its dark outside, the lights inside turn on automatically and when its bright enough outside, the lights turn off automatically.
 + The last two buttons are for opening and closing the windows.
-+ When the "Automatic Blinds" switch is turned on, temperature sensor takes the value of the ambient temperature and if the value crosses a certain treshold, the windows open automatically.
++ When the "Automatic Blinds" switch is turned on, temperature sensor takes the value of the ambient temperature and if the value crosses a certain threshold, the windows open automatically.
 
 # What we learnt?
 ## Arduino:-
