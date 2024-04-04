@@ -7,7 +7,7 @@ Servo a1;
 Servo a2;
 struct cspro{
   char Incoming_value=0;
-  int flag;
+  bool flag;
   int avg;
   bool AUTOWN;
   bool AUTO;
