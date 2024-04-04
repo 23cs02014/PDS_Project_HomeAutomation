@@ -158,12 +158,12 @@ void loop() {
       openWindow();
     }
   }
-  // if(readSmoke(5)<=300){
-  //   digitalWrite(12,HIGH);    
-  // }
-  // else{
-  //   digitalWrite(12,LOW);
-  // }
+   if(readSmoke(5)<=300){
+     digitalWrite(12,HIGH);    
+   }
+   else{
+     digitalWrite(12,LOW);
+   }
   // Serial.print("temp:");
   // Serial.print(readTemp(5)); /* temp sensor for auto window*/
   // Serial.print("|| smoke:");
