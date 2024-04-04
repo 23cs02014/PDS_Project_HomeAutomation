@@ -69,7 +69,7 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 + The struct contains a character variable for the incoming value and three booleans of which, two of them are used for Automatic Lights and Automatic Blinds
 + The third one is a flag variable to detect the current state of the lights.
 + It contains a byte variable to hold the current brightness value for the lights.
-### 4. Libraries:-
+### 5. Libraries:-
 + Libraries are collections of pre-written code that provide additional functionality to your Arduino projects. You can include libraries in your code using the #include directive.
 
 
