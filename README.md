@@ -65,4 +65,4 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 ### 3. Control Structures:-
 + Control structures allow you to control the flow of your program based on certain conditions. Arduino supports common control structures like if, else, while, and for.
 ### 4. Libraries:-
-+ Libraries are collections of pre-written code that provide additional functionality to your Arduino projects. You can include libraries in your code using the #include directive.\
++ Libraries are collections of pre-written code that provide additional functionality to your Arduino projects. You can include libraries in your code using the #include directive.
