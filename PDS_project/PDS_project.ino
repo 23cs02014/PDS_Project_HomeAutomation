@@ -101,9 +101,8 @@ int readTemp(int n){
   avg=avg/n;
   return avg;
 }
-
-void loop() {
-  // checking if a value is being sent
+void runtime(){
+ // checking if a value is being sent
   if (Serial.available() > 0) {
     //Reading the value
     x1.Incoming_value = Serial.read();
@@ -173,7 +172,8 @@ void loop() {
         break;
     }
   }
-  /*Checking if AUTO is enabled*/
+}
+void autoLights(){  /*Checking if AUTO is enabled*/
   if (x1.AUTO) {
     /*reading and checking the values againt the preset threshold*/
     if (readLight(5) < 150) {
@@ -182,7 +182,8 @@ void loop() {
       lightsOn();
     }
   }
-//  Serial.println(analogRead(A0));
+}
+void autoWindow(){
   /*Checking if AUTOWN is enabled*/
   if (x1.AUTOWN == 1) {
     /*reading and checking the values againt the preset threshold*/
@@ -192,6 +193,8 @@ void loop() {
       openWindow();
     }
   }
+}
+void checkSmoke(){
   /*reading and checking the values againt the preset threshold*/
   /*For the smoke sensor which enables the buzzer*/
    if(readSmoke(5)<=300){
@@ -200,12 +203,26 @@ void loop() {
    else{
      digitalWrite(buzzer,LOW);
    }
-  // Serial.print("temp:");
-  // Serial.print(readTemp(5)); /* temp sensor for auto window*/
-  // Serial.print("|| smoke:");
-  // Serial.print(readSmoke(5));
-  // Serial.print("|| Photo:");
-  // Serial.println(readLight(5));
+}
+void debug(int x , int y , int z){
+   Serial.print("temp:");
+   Serial.print(readTemp(x)); /* temp sensor for auto window*/
+   Serial.print("|| smoke:");
+   Serial.print(readSmoke(y));
+   Serial.print("|| Photo:");
+   Serial.println(readLight(z));
+}
+void loop() {
+/*Main function of the program*/
+runtime();
+  
+autoLights();
+  
+autoWindow();
+  
+checkSmoke();
+  
+//debug(5,5,5);
 
 }
 
