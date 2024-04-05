@@ -19,7 +19,11 @@ https://github.com/23cs02014/PDS_Project_HomeAutomation/assets/164471213/f60d292
 ### 4. Automatic door:- 
 + We are using a servo motor. It uses an encoder or speed sensor to provide speed feedback and position. This feedback signal is compared with the input command position (desired position of the motor corresponding to a load) and produces the error signal (if there exists a difference between them).
 + The entrance of the room is being secured by the app which we created. We can open the door by clickling the "Open" button on our phone after the bluetooth connection is established.
-### 5. MIT app inventor:-
+### 5. Bluetooth Connectivity:-
++ Bluetooth connectivity is achieved through the HC-05 bluetooth module.
++ It is communicates via the Serial Interface of the Arduino.
++ The App sends a character in a serial format, which is picked up by the HC-05 module, which in turn is sent to the arduino Serially.
+### 6. MIT app inventor:-
 + In this project, we have used the “MIT app inventor” to create the app which runs on Bluetooth to communicate with our Arduino Nano.
 + ***The app does not run on C***
 + MIT App Inventor is based on visual programming, specifically using a blocks-based programming interface. It is mainly used to make apps on android devices.
